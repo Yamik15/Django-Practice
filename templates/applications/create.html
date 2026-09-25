@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Новая заявка на курс</h2>
+<form method="post">
+    {% csrf_token %}
+    <p>
+        <select name="course" required>
+            <option value="">Выберите курс</option>
+            <option value="Основы алгоритмизации и программирования">Основы алгоритмизации и программирования</option>
+            <option value="Основы веб-дизайна">Основы веб-дизайна</option>
+            <option value="Основы проектирования баз-данных">Основы проектирования баз-данных</option>
+        </select>
+    </p>
+    <p><input type="text" name="start_date" placeholder="Дата начала (ДД.ММ.ГГГГ)" required></p>
+    <p>
+        <label><input type="radio" name="payment_method" value="cash" required>Наличными</label><br>
+        <label><input type="radio" name="payment_method" value="transfer">Перевод по номеру телефона</label>
+    </p>
+    <button type="submit">Отправить заявку</button>
+</form>
+<p><a class="button" href="{% url 'home' %}">Вернуться на главную</a></p>
+{% endblock content %}

@@ -1,0 +1,87 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 900px; /* контент не растягивается шире 900px */
+    margin: 0 auto;   /* авто-отступы с боков = центрирование */
+    padding: 0 20px;
+    background: #fff;
+    color: #333;
+}
+
+.header {
+    display: flex;                  /* flexbox: элементы в строку */
+    justify-content: space-between; /* название слева, кнопки справа */
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.header h1 { margin: 0; font-size: 22px; color: #007bff; }
+.header nav { display: flex; gap: 10px; } /* кнопки с промежутком 10px */
+
+input, select, textarea, button {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;            /* все поля на всю ширину контейнера */
+    box-sizing: border-box; /* padding не увеличивает ширину */
+    border: 1px solid #999;
+    font-size: 14px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Кнопка-ссылка: <a>, но выглядит как кнопка */
+.button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* двойные рамки сливаются в одинарные */
+    margin: 15px 0;
+}
+
+th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+th { background: #007bff; color: white; } /* синяя шапка таблицы */
+
+.slider {
+    position: relative; /* якорь для абсолютного позиционирования кнопок */
+    width: 100%;
+    max-width: 800px;
+    margin: 15px auto;
+    overflow: hidden; /* обрезает всё, что выходит за границы */
+}
+
+.slides img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; /* картинка заполняет блок, лишнее обрезается */
+    display: none;     /* по умолчанию все слайды скрыты */
+}
+
+.slides img.active { display: block; } /* виден только активный */
+
+.prev, .next {
+    position: absolute; /* позиционируются относительно .slider */
+    top: 0; bottom: 0;
+    margin: auto;       /* вертикальное центрирование */
+    background: rgba(0,0,0,0.5); /* полупрозрачный чёрный */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    /* width/height: auto и box-sizing переопределены,
+       чтобы кнопки не растягивались по width: 100% из правила выше */
+}
+
+.next { right: 0; }
+.prev { left: 0; }

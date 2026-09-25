@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Вход</h2>
+<form method="post">
+    {% csrf_token %}
+    <p><input type="text" name="username" placeholder="Логин" required></p>
+    <p><input type="password" name="password" placeholder="Пароль" required></p>
+    <button type="submit">Войти</button>
+</form>
+{% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
+<p>Зарегистрироваться <a class="button" href="{% url 'register' %}">Создать аккаунт</a></p>
+{% endblock content %}

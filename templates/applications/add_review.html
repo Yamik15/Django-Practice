@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Оставить отзыв ло курсе "{{ application.course }}"</h2>
+<form method="post">
+    {% csrf_token %}
+    <p><textarea name="review" rows="5" placeholder="Ваш отзыв..." required></textarea></p>
+    <button type="submit">Отправить отзыв</button>
+</form>
+<p><a class="button" href="{% url 'home' %}">Вернуться на главную</a></p>
+{% endblock content %}
